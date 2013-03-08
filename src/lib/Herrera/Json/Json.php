@@ -53,7 +53,11 @@ class Json
      */
     public function decode($json, $assoc = false, $depth = 512, $options = 0)
     {
-        $data = json_decode($json, $assoc, $depth, $options);
+        if (JSON_DECODE_FOURTH_ARG) {
+            $data = json_decode($json, $assoc, $depth, $options);
+        } else {
+            $data = json_decode($json, $assoc, $depth);
+        }
 
         if (JSON_ERROR_NONE !== ($error = json_last_error())) {
             if (JSON_ERROR_UTF8 === $error) {

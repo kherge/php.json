@@ -24,6 +24,7 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
+        "files": ["src/lib/json_version.php"],
         "psr-0": {
             "Herrera\\Json": "src/lib"
         }
