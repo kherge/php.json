@@ -29,7 +29,7 @@ use Herrera\Json\Json;
 
 $json = new Json();
 
-$json->validate($schema, $json); // throws Herrera\Json\Exception\JsonException
+$json->validate($schema, $decoded); // throws Herrera\Json\Exception\JsonException
 
 $data = $json->decode('{'); // throws Seld\JsonLint\ParsingException
 ```
