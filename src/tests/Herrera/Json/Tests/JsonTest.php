@@ -5,6 +5,8 @@ namespace Herrera\Json\Tests;
 use Herrera\Json\Exception\JsonException;
 use Herrera\Json\Json;
 use Herrera\PHPUnit\TestCase;
+use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsStreamWrapper;
 
 class JsonTest extends TestCase
 {
@@ -53,14 +55,29 @@ class JsonTest extends TestCase
         $this->assertEquals((object) $data, $this->json->decodeFile($file));
     }
 
-    public function testDecodeFileReadError()
+    public function testDecodeFileNotExist()
     {
         $this->setExpectedException(
             'Herrera\\Json\\Exception\\FileException',
-            'No such file or directory'
+            'The path "/does/not/exist" is not a file or does not exist.'
         );
 
         $this->json->decodeFile('/does/not/exist');
+    }
+
+    public function testDecodeFileReadError()
+    {
+        $root = vfsStream::newDirectory('test');
+        $root->addChild(vfsStream::newFile('test.json', 0000));
+
+        vfsStreamWrapper::setRoot($root);
+
+        $this->setExpectedException(
+            'Herrera\\Json\\Exception\\FileException',
+            'failed to open stream'
+        );
+
+        $this->json->decodeFile('vfs://test/test.json');
     }
 
     public function testLint()

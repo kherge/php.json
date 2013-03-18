@@ -90,6 +90,13 @@ class Json
         $assoc = false,
         $depth = 512,
         $options = 0){
+        if (false === is_file($file)) {
+            throw FileException::create(
+                'The path "%s" is not a file or does not exist.',
+                $file
+            );
+        }
+
         if (false === ($json = @file_get_contents($file))) {
             throw FileException::lastError();
         }
