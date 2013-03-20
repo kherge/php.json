@@ -55,6 +55,16 @@ class JsonTest extends TestCase
         $this->assertEquals((object) $data, $this->json->decodeFile($file));
     }
 
+    public function testDecodeFileIgnoreUri()
+    {
+        $this->setExpectedException(
+            'Herrera\\Json\\Exception\\FileException',
+            'failed to open stream'
+        );
+
+        $this->json->decodeFile('vfs://test/ignore.json');
+    }
+
     public function testDecodeFileNotExist()
     {
         $this->setExpectedException(
