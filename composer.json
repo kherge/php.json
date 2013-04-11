@@ -16,6 +16,7 @@
     },
     "require": {
         "php": ">=5.3.3",
+        "ext-json": "*",
         "justinrainbow/json-schema": ">=1.0,<2.0-dev",
         "seld/jsonlint": ">=1.0,<2.0-dev"
     },
