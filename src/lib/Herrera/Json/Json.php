@@ -89,7 +89,8 @@ class Json
         $file,
         $assoc = false,
         $depth = 512,
-        $options = 0){
+        $options = 0
+    ) {
         if ((false == preg_match('/^\w+:\/\//', $file)) &&
             (false === is_file($file))) {
             throw FileException::create(
