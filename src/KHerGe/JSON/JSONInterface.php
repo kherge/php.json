@@ -156,40 +156,40 @@ interface JSONInterface
     public function lintFile($file);
 
     /**
-     * Validates a JSON encoded value.
+     * Validates a decoded JSON value using a schema.
      *
-     * This method will validate an encoded JSON value using the given JSON
-     * schema (i.e. {@link http://json-schema.org/ json-schema}). If the JSON
-     * data failed validation, an exception is thrown that contains information
-     * on what validation constraints failed.
+     * This method will validate a decoded JSON value using the given JSON
+     * schema (i.e. {@link http://json-schema.org/ json-schema}). If the data
+     * failed validation, an exception is thrown that contains information on
+     * what validation constraints failed.
      *
      * ```php
-     * $json->validate($schema, $encoded);
+     * $json->validate($schema, $decoded);
      * ```
      *
-     * @param string $schema The JSON schema.
-     * @param string $json   The JSON encoded value.
+     * @param string $schema  The JSON schema.
+     * @param mixed  $decoded The decoded value.
      *
      * @throws ValidationException If the encoded value fails validation.
      */
-    public function validate($schema, $json);
+    public function validate($schema, $decoded);
 
     /**
-     * Validates the contents of a file as JSON encoded data.
+     * Validates a decoded JSON value using a schema file.
      *
-     * This method will read the contents of a file and validate it as if it
-     * were JSON encoded data. If the JSON data failed validation, an exception
-     * is thrown that contains information on what validation constraints
-     * failed.
+     * This method will validate a decoded JSON value using a schema that is
+     * stored in a file (i.e. {@link http://json-schema.org/ json-schema}). If
+     * the data failed validation, an exception is thrown that contains
+     * information on what validation constraints failed.
      *
      * ```php
-     * $json->validateFile('/path/to/schema.json', '/path/to/file.json');
+     * $json->validateFile('/path/to/schema.json', $decoded);
      * ```
      *
      * @param string $schemaFile The path to the schema file.
-     * @param string $jsonFile   The path to the JSON file.
+     * @param mixed  $decoded    The decoded value.
      *
      * @throws ValidationException If the encoded value fails validation.
      */
-    public function validateFile($schemaFile, $jsonFile);
+    public function validateFile($schemaFile, $decoded);
 }
