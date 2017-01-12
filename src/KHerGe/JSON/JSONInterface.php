@@ -1,6 +1,6 @@
 <?php
 
-namespace KHerGe\JSON\Exception;
+namespace KHerGe\JSON;
 
 /**
  * Defines the public interface for a JSON data manager.
