@@ -1,0 +1,48 @@
+{
+    "type": "library",
+    "name": "kherge/json",
+    "description": "Encodes, decodes, and validates JSON data.",
+    "keywords": ["decode", "encode", "json", "validate"],
+    "license": [
+        "MIT",
+        "Apache-2.0"
+    ],
+    "support": {
+        "issues": "https://github.com/kherge-php/json/issues",
+        "source": "https://github.com/kherge-php/json"
+    },
+
+    "authors": [
+        {
+            "name": "Kevin Herrera",
+            "email": "kevin@herrera.io",
+            "homepage": "http://kevin.herrera.io/",
+            "role": "Developer"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "KHerGe\\JSON\\": "src/KHerGe/JSON"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\KHerGe\\JSON\\": "tests/KHerGe/JSON"
+        }
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
+    },
+
+    "require": {
+        "php": ">=5.6",
+
+        "ext-json": "*",
+        "kherge/file-manager": "^2.6"
+    }
+}
