@@ -5,6 +5,7 @@ namespace KHerGe\JSON;
 use KHerGe\JSON\Exception\DecodeException;
 use KHerGe\JSON\Exception\EncodeException;
 use KHerGe\JSON\Exception\LintingException;
+use KHerGe\JSON\Exception\UnknownException;
 use KHerGe\JSON\Exception\ValidationException;
 
 /**
@@ -37,7 +38,8 @@ interface JSONInterface
      *
      * @return mixed The decoded value.
      *
-     * @throws DecodeException If the value could not be decoded.
+     * @throws DecodeException  If the value could not be decoded.
+     * @throws UnknownException If there was an error but it was not recognized.
      */
     public function decode(
         $json,
@@ -65,7 +67,8 @@ interface JSONInterface
      *
      * @return mixed The decoded value.
      *
-     * @throws DecodeException If the value could not be decoded.
+     * @throws DecodeException  If the value could not be decoded.
+     * @throws UnknownException If there was an error but it was not recognized.
      */
     public function decodeFile(
         $file,
@@ -91,7 +94,8 @@ interface JSONInterface
      *
      * @return string The encoded value.
      *
-     * @throws EncodeException If the value could not be encoded.
+     * @throws EncodeException  If the value could not be encoded.
+     * @throws UnknownException If there was an error but it was not recognized.
      */
     public function encode($value, $options = 0, $depth = 512);
 
@@ -112,7 +116,8 @@ interface JSONInterface
      * @param integer $options The encoding options.
      * @param integer $depth   The maximum recursive depth.
      *
-     * @throws EncodeException If the value could not be encoded.
+     * @throws EncodeException  If the value could not be encoded.
+     * @throws UnknownException If there was an error but it was not recognized.
      */
     public function encodeFile($value, $file, $options = 0, $depth = 512);
 
