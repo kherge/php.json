@@ -156,9 +156,9 @@ interface JSONInterface
     public function lintFile($file);
 
     /**
-     * Validates a decoded JSON value using a schema.
+     * Validates a decoded JSON value using a decoded JSON schema.
      *
-     * This method will validate a decoded JSON value using the given JSON
+     * This method will validate a decoded JSON value using the decoded JSON
      * schema (i.e. {@link http://json-schema.org/ json-schema}). If the data
      * failed validation, an exception is thrown that contains information on
      * what validation constraints failed.
@@ -167,29 +167,10 @@ interface JSONInterface
      * $json->validate($schema, $decoded);
      * ```
      *
-     * @param string $schema  The JSON schema.
+     * @param object $schema  The decoded schema.
      * @param mixed  $decoded The decoded value.
      *
      * @throws ValidationException If the encoded value fails validation.
      */
     public function validate($schema, $decoded);
-
-    /**
-     * Validates a decoded JSON value using a schema file.
-     *
-     * This method will validate a decoded JSON value using a schema that is
-     * stored in a file (i.e. {@link http://json-schema.org/ json-schema}). If
-     * the data failed validation, an exception is thrown that contains
-     * information on what validation constraints failed.
-     *
-     * ```php
-     * $json->validateFile('/path/to/schema.json', $decoded);
-     * ```
-     *
-     * @param string $schemaFile The path to the schema file.
-     * @param mixed  $decoded    The decoded value.
-     *
-     * @throws ValidationException If the encoded value fails validation.
-     */
-    public function validateFile($schemaFile, $decoded);
 }
