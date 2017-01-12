@@ -2,6 +2,11 @@
 
 namespace KHerGe\JSON;
 
+use KHerGe\JSON\Exception\DecodeException;
+use KHerGe\JSON\Exception\EncodeException;
+use KHerGe\JSON\Exception\LintingException;
+use KHerGe\JSON\Exception\ValidationException;
+
 /**
  * Defines the public interface for a JSON data manager.
  *
@@ -31,6 +36,8 @@ interface JSONInterface
      * @param integer $options     The decoding options.
      *
      * @return mixed The decoded value.
+     *
+     * @throws DecodeException If the value could not be decoded.
      */
     public function decode(
         $json,
@@ -57,6 +64,8 @@ interface JSONInterface
      * @param integer $options     The decoding options.
      *
      * @return mixed The decoded value.
+     *
+     * @throws DecodeException If the value could not be decoded.
      */
     public function decodeFile(
         $file,
@@ -81,6 +90,8 @@ interface JSONInterface
      * @param integer $depth   The maximum recursive depth.
      *
      * @return string The encoded value.
+     *
+     * @throws EncodeException If the value could not be encoded.
      */
     public function encode($value, $options = 0, $depth = 512);
 
@@ -100,6 +111,8 @@ interface JSONInterface
      * @param string  $file    The path to the file.
      * @param integer $options The encoding options.
      * @param integer $depth   The maximum recursive depth.
+     *
+     * @throws EncodeException If the value could not be encoded.
      */
     public function encodeFile($value, $file, $options = 0, $depth = 512);
 
@@ -115,6 +128,8 @@ interface JSONInterface
      * ```
      *
      * @param string $json The JSON encoded value.
+     *
+     * @throws LintingException If the encoded value failed to lint.
      */
     public function lint($json);
 
@@ -130,6 +145,8 @@ interface JSONInterface
      * ```
      *
      * @param string $file The path to the file.
+     *
+     * @throws LintingException If the encoded value failed to lint.
      */
     public function lintFile($file);
 
@@ -147,6 +164,8 @@ interface JSONInterface
      *
      * @param string $schema The JSON schema.
      * @param string $json   The JSON encoded value.
+     *
+     * @throws ValidationException If the encoded value fails validation.
      */
     public function validate($schema, $json);
 
@@ -164,6 +183,8 @@ interface JSONInterface
      *
      * @param string $schemaFile The path to the schema file.
      * @param string $jsonFile   The path to the JSON file.
+     *
+     * @throws ValidationException If the encoded value fails validation.
      */
     public function validateFile($schemaFile, $jsonFile);
 }
