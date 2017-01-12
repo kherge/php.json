@@ -29,6 +29,8 @@ interface JSONInterface
      * @param boolean $associative Decode objects as associative arrays?
      * @param integer $depth       The maximum recursive depth.
      * @param integer $options     The decoding options.
+     *
+     * @return mixed The decoded value.
      */
     public function decode(
         $json,
@@ -53,6 +55,8 @@ interface JSONInterface
      * @param boolean $associative Decode objects as associative arrays?
      * @param integer $depth       The maximum recursive depth.
      * @param integer $options     The decoding options.
+     *
+     * @return mixed The decoded value.
      */
     public function decodeFile(
         $file,
@@ -75,6 +79,8 @@ interface JSONInterface
      * @param mixed   $value   The value to encode.
      * @param integer $options The encoding options.
      * @param integer $depth   The maximum recursive depth.
+     *
+     * @return string The encoded value.
      */
     public function encode($value, $options = 0, $depth = 512);
 
