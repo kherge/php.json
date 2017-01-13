@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/kherge-php/json.svg?branch=master)](https://travis-ci.org/kherge-php/json)
-[![Packagist](https://img.shields.io/packagist/v/kherge/json.svg)]()
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/kherge/json.svg)]()
+[![Packagist](https://img.shields.io/packagist/v/kherge/json.svg)](https://packagist.org/packages/kherge/json)
+[![Packagist Pre Release](https://img.shields.io/packagist/vpre/kherge/json.svg)](https://packagist.org/packages/kherge/json)
 
 JSON
 ====
