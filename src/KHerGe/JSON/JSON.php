@@ -249,7 +249,7 @@ class JSON implements JSONInterface
             );
         }
 
-        if (null !== $errors) {
+        if (!empty($errors)) {
             throw new ValidationException(
                 "The decoded JSON value failed validation:\n%s",
                 join("\n", $errors)

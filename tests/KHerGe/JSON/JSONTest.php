@@ -323,6 +323,26 @@ class JSONTest extends TestCase
     }
 
     /**
+     * Verify that a successful validation does not throw an exception.
+     *
+     * @covers ::validate
+     */
+    public function testSuccessfulValidationDoesNotThrowAnException()
+    {
+        $schema = (object) [
+            'type' => 'object',
+            'properties' => (object) [
+                'test' => (object) [
+                    'description' => 'A test value.',
+                    'type' => 'integer'
+                ]
+            ]
+        ];
+
+        $this->json->validate($schema, (object) ['test' => 123]);
+    }
+
+    /**
      * Creates a new JSON data manager.
      */
     protected function setUp()
