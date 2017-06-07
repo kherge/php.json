@@ -3,6 +3,8 @@
 namespace KHerGe\JSON;
 
 use Exception;
+use JsonSchema\Constraints\Factory;
+use JsonSchema\SchemaStorage;
 use JsonSchema\Validator;
 use KHerGe\File\File;
 use KHerGe\JSON\Exception\Decode\ControlCharacterException;
@@ -36,13 +38,6 @@ class JSON implements JSONInterface
      * @var JsonParser
      */
     private $linter;
-
-    /**
-     * The JSON validator.
-     *
-     * @var Validator
-     */
-    private $validator;
 
     /**
      * {@inheritdoc}
@@ -229,19 +224,20 @@ class JSON implements JSONInterface
      */
     public function validate($schema, $decoded)
     {
-        if (null === $this->validator) {
-            $this->validator = new Validator();
-        }
+        $storage = new SchemaStorage();
+        $storage->addSchema('file://schema', $schema);
 
-        $this->validator->check($decoded, $schema);
+        $validator = new Validator(new Factory($storage));
 
-        if ($this->validator->isValid()) {
+        $validator->check($decoded, $schema);
+
+        if ($validator->isValid()) {
             return null;
         }
 
         $errors = [];
 
-        foreach ($this->validator->getErrors() as $error) {
+        foreach ($validator->getErrors() as $error) {
             $errors[] = sprintf(
                 '[%s] %s',
                 $error['property'],
