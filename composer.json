@@ -41,9 +41,8 @@
 
     "require": {
         "php": ">=5.6",
-
         "ext-json": "*",
-        "justinrainbow/json-schema": "^4.1",
+        "justinrainbow/json-schema": ">=4.1",
         "kherge/file-manager": "^2.6",
         "seld/jsonlint": "^1.5"
     }
