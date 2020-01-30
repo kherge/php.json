@@ -1,6 +1,10 @@
+env:
+    - JS_VERSION=^4.1
+    - JS_VERSION=^5.0
+
 install:
     - composer install
-    - composer require phpunit/phpunit=^5.0
+    - composer require justinrainbow/json-schema=$JS_VERSION phpunit/phpunit=^5.0
 
 language: php
 
