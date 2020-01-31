@@ -7,6 +7,7 @@ env:
     - JS_VERSION=^5.0
 
 install:
+    - composer global require phpunit/phpunit=^8
     - composer install
     - composer require justinrainbow/json-schema=$JS_VERSION phpunit/phpunit=^5.0
 
