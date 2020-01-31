@@ -25,6 +25,6 @@ php:
     - 7.4
     - nightly
 
-script: vendor/bin/phpunit
+script: phpunit
 
 sudo: false
