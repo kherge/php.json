@@ -43,7 +43,7 @@
         "php": ">=7.3",
 
         "ext-json": "*",
-        "justinrainbow/json-schema": "^5.0",
+        "justinrainbow/json-schema": "^5.1",
         "kherge/file-manager": "^2.6",
         "seld/jsonlint": "^1.5"
     }

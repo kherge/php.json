@@ -3,8 +3,8 @@ cache:
         - ~/.config/composer/
 
 env:
-    - JS_VERSION=5.0.0
-    - JS_VERSION=^5.0
+    - JS_VERSION=5.1.0
+    - JS_VERSION=^5.1
 
 install:
     - composer global require phpunit/phpunit=^8
