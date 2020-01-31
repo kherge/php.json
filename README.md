@@ -57,13 +57,13 @@ and contains all of the information you will need.
 Requirements
 ------------
 
-- PHP 5.6+
+- PHP 7.3+
     - json
 
 Installation
 ------------
 
-    composer require kherge/json=^2.0
+    composer require kherge/json=^3
 
 License
 -------
