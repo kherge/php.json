@@ -3,7 +3,7 @@
 namespace Test\KHerGe\JSON\Exception;
 
 use KHerGe\JSON\Exception\Exception;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Verifies that the base exception class functions as intended.
@@ -21,7 +21,9 @@ class ExceptionTest extends TestCase
      */
     public function testCreateAnExceptionWithoutAMessage()
     {
-        new Exception();
+        $exception = new Exception();
+        
+        self::assertEquals("", $exception->getMessage());
     }
 
     /**

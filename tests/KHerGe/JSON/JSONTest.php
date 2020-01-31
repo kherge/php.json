@@ -16,7 +16,7 @@ use KHerGe\JSON\Exception\EncodeException;
 use KHerGe\JSON\Exception\LintingException;
 use KHerGe\JSON\Exception\ValidationException;
 use KHerGe\JSON\JSON;
-use PHPUnit_Framework_TestCase as TestCase;
+use PHPUnit\Framework\TestCase;
 
 use function KHerGe\File\remove;
 use function KHerGe\File\temp_file;
@@ -340,12 +340,14 @@ class JSONTest extends TestCase
         ];
 
         $this->json->validate($schema, (object) ['test' => 123]);
+
+        self::assertTrue(true);
     }
 
     /**
      * Creates a new JSON data manager.
      */
-    protected function setUp()
+    protected function setUp() : void
     {
         $this->json = new JSON();
     }
@@ -353,7 +355,7 @@ class JSONTest extends TestCase
     /**
      * Deletes the temporary paths.
      */
-    protected function tearDown()
+    protected function tearDown() : void
     {
         foreach ($this->temp as $path) {
             if (file_exists($path)) {
