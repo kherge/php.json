@@ -151,16 +151,14 @@ class JSON implements JSONInterface
 
                     break;
 
-                default:
-                    // php 7.0
-                    if (defined('JSON_ERROR_INVALID_PROPERTY_NAME')) {
-                        if (JSON_ERROR_INVALID_PROPERTY_NAME === json_last_error()) {
-                            throw new InvalidPropertyNameException(
-                                'The value contained a property with an invalid JSON key name.'
-                            );
-                        }
-                    }
+                case JSON_ERROR_INVALID_PROPERTY_NAME:
+                    throw new InvalidPropertyNameException(
+                        'The value contained a property with an invalid JSON key name.'
+                    );
 
+                    break;
+
+                default:
                     throw new UnknownException(
                         'An unrecognized encoding error was encountered: %s',
                         json_last_error_msg()
