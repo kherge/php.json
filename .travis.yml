@@ -11,14 +11,14 @@ install:
     - composer install
     - composer require justinrainbow/json-schema=$JS_VERSION
 
-language: php
-
-matrix:
+jobs:
 
     allow_failures:
         - php: nightly
 
     fast_finish: true
+
+language: php
 
 php:
     - 7.3
@@ -26,5 +26,3 @@ php:
     - nightly
 
 script: phpunit
-
-sudo: false
